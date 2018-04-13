@@ -4,7 +4,7 @@ public interface Shape {
 
     /* position parameter */
     Position getPosition();
-    void translate();
+    void translate(double dx, double dy);
 
     int getRotation();
     void setRotation(int r);
@@ -20,5 +20,5 @@ public interface Shape {
 
     int getArrondi();
     void setArrondi(int a);
-    
+
 }

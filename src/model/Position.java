@@ -10,9 +10,9 @@ public class Position {
     }
 
     public double getX() { return x; }
-    public void setX(int n) { x = n; }
+    public void setX(double n) { x = n; }
 
     public double getY() { return y; }
-    public void setY(int n) { y = n; }
+    public void setY(double n) { y = n; }
 
 }
