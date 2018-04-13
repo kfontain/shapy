@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>21</x>
+      <y>21</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;GFXFactory&gt;&gt;
+--
++ createController() : Controller
++ createView() : View
++ createViewVisitor() : ViewVisitor</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1127</x>
+      <y>280</y>
+      <w>210</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Shape&gt;&gt;
+--
+- color : RGB
+- center : Position
+- rotation : int
+- rotationCenter : Position
+- translationCenter : Position
+--
++ clone() : Shape
++ translation : void
++ addEntity() : void
++ removeEntity() : void
++getcChildren() : Iterator&lt;Entity&gt;
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1274</x>
+      <y>483</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Polygone&gt;&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1099</x>
+      <y>483</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Rectangle&gt;&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1162</x>
+      <y>427</y>
+      <w>112</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;140.0;40.0;10.0;40.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1253</x>
+      <y>427</y>
+      <w>105</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;130.0;40.0;130.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>21</x>
+      <y>203</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;JavaFXFactory&gt;&gt;
+--
++ createController() : Controller
++ createView() : View
++ createViewVisitor(): ViewVisitor
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>91</x>
+      <y>147</y>
+      <w>21</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>686</x>
+      <y>308</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;View&gt;&gt;
+--
++ accept(ViewVisitor visitor)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>896</x>
+      <y>308</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Controller&gt;&gt;
+--
+List&lt;Command&gt;
+--
+ColorToJava(int r, int g, int b) : Color
+JavaToColor(Color c) : </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>896</x>
+      <y>483</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;JavaFXController&gt;&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>224</y>
+      <w>252</w>
+      <h>287</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>340.0;390.0;150.0;390.0;150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>756</x>
+      <y>434</y>
+      <w>21</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>966</x>
+      <y>434</y>
+      <w>21</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1302</x>
+      <y>91</y>
+      <w>168</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+--
++ addEntity() : void
++ removeEntity() : void
++ getChildren() : Iterator&lt;Entity&gt;
++ clone() : Entity
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1484</x>
+      <y>301</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;ShapeGroup&gt;&gt;
+--
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1463</x>
+      <y>154</y>
+      <w>245</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>240.0;310.0;330.0;310.0;330.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1225</x>
+      <y>231</y>
+      <w>175</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>230.0;10.0;230.0;40.0;10.0;40.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1379</x>
+      <y>231</y>
+      <w>196</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;260.0;40.0;260.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1365</x>
+      <y>371</y>
+      <w>98</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>Throws exception
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1330</x>
+      <y>392</y>
+      <w>49</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=.()</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1078</x>
+      <y>0</y>
+      <w>147</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;RGB&gt;&gt;
+--
+r : int
+g : int
+b : int
+--
+set()
+get()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1078</x>
+      <y>91</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Position&gt;&gt;
+--
+x : int
+y : int
+--
+set()
+get()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1218</x>
+      <y>126</y>
+      <w>98</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1218</x>
+      <y>42</y>
+      <w>126</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;70.0;160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>406</x>
+      <y>483</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;ViewVisitorJavaFX&gt;&gt;
+--
++ draw()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>476</x>
+      <y>434</y>
+      <w>21</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>686</x>
+      <y>483</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;JavaFXFView&gt;&gt;
+--
++ accept(ViewVisitor visitor)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>406</x>
+      <y>308</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;ViewVisitor&gt;&gt;
+--
++ draw()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>693</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;RectangleVisitorJavaFX&gt;&gt;
+--
+- witdh: double
+- hight: double
+--
++ draw()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>455</x>
+      <y>693</y>
+      <w>154</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;PolygoneVisitorJavaFX&gt;&gt;
+--
++ draw()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>315</x>
+      <y>609</y>
+      <w>224</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>240.0;10.0;240.0;70.0;300.0;70.0;300.0;120.0;300.0;70.0;10.0;70.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>259</y>
+      <w>532</w>
+      <h>287</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>740.0;390.0;660.0;390.0;660.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>238</y>
+      <w>742</w>
+      <h>308</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>1040.0;420.0;980.0;420.0;980.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
