@@ -1,34 +1,17 @@
 package model;
 
-public class Rectangle implements Shape {
+public class Polygone implements Shape {
 
-    private int length;
-    private int height;
     private Position pos;
+    private int nbEdges;
+    private int length;
     private int rotation;
     private Position rotationCenter;
     private Position translationCenter;
     private RGB rgb;
-    private int arrondi;
 
-    public Rectangle() {
+    public Polygone() {
 
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int l) {
-        length = l;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int h) {
-        height = height;
     }
 
     @Override
@@ -44,6 +27,14 @@ public class Rectangle implements Shape {
         pos.setX(pos.getX() + dx);
         pos.setY(pos.getY() + dy);
     }
+
+    public int getNbEdges() { return nbEdges; }
+
+    public void setNbEdges(int n) { nbEdges = n; }
+
+    public int getLength() { return length; }
+
+    public void setLength(int l) { length = l; }
 
     @Override
     public int getRotation() {
@@ -85,11 +76,4 @@ public class Rectangle implements Shape {
         this.rgb = rgb;
     }
 
-    public int getArrondi() {
-        return arrondi;
-    }
-
-    public void setArrondi(int a) {
-        arrondi = a;
-    }
 }
