@@ -3,6 +3,6 @@ package view;
 public interface View {
 	public void addMenuBar();
 	public void addCanvas();
-	public void addRectangleToToolBar(double width, double height);
-	public void addPolygoneToToolBar();
+	public void drawRectangle(double x, double y, double w, double h);
+	public void drawRectangleInToolBar(double width, double height);
 }
