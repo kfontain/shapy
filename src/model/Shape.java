@@ -1,22 +1,53 @@
 package model;
 
-public interface Shape {
+import java.nio.channels.UnsupportedAddressTypeException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-    /* position parameter */
-    Position getPosition();
-    void setPosition(Position p);
-    void translate(double dx, double dy);
+import controller.Controller;
 
-    int getRotation();
-    void setRotation(int r);
+public abstract class Shape implements Entity {
+	private ArrayList<Controller> observers;
+	
+	public Shape() {
+		observers = new ArrayList<Controller>();
+	}
+	
+	public void addEntity(Entity e) throws UnsupportedOperationException {
+		throw new UnsupportedAddressTypeException();
+	}
+	
+	public void removeEntity(Entity e) throws UnsupportedOperationException {
+		throw new UnsupportedOperationException();
+	}
+	
+	public Iterator<Entity> getChildren() throws UnsupportedOperationException {
+		throw new UnsupportedOperationException();
+	}
+	
+	public Shape clone() {
+		try {
+			return (Shape) super.clone();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return this;
+	}
+	
+    public void addObserver(Controller observer) {
+    	observers.add(observer);
+    }
+    
+    public void removeObserver(Controller observer) {
+    	observers.remove(observer);
+    }
 
-    Position getRotationCenter();
-    void setRotationCenter(Position p);
-
-    Position getTranslationCenter();
-    void setTranslationCenter(Position p);
-
-    RGB getRGB();
-    void setRGB(RGB rgb);
+    public void notifyObservers() {
+    	for(Controller each : observers) {
+    		each.updateView();
+    	}
+    }
 
 }

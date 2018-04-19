@@ -1,17 +1,17 @@
 package model;
 
-public class Polygone implements Shape {
+public class Polygone extends Shape {
 
     private Position pos;
     private int nbEdges;
-    private int length;
+    private double length;
     private int rotation;
     private Position rotationCenter;
     private Position translationCenter;
     private RGB rgb;
 
     public Polygone() {
-
+    	super();
     }
 
     @Override
@@ -32,9 +32,9 @@ public class Polygone implements Shape {
 
     public void setNbEdges(int n) { nbEdges = n; }
 
-    public int getLength() { return length; }
+    public double getLength() { return length; }
 
-    public void setLength(int l) { length = l; }
+    public void setLength(double l) { length = l; }
 
     @Override
     public int getRotation() {
@@ -75,5 +75,10 @@ public class Polygone implements Shape {
     public void setRGB(RGB rgb) {
         this.rgb = rgb;
     }
+
+	@Override
+	public Polygone clone() {
+		return (Polygone)super.clone();
+	}
 
 }

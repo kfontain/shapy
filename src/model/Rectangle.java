@@ -1,9 +1,9 @@
 package model;
 
-public class Rectangle implements Shape {
+public class Rectangle extends Shape {
 
-    private int length;
-    private int height;
+    private double width;
+    private double height;
     private Position pos;
     private int rotation;
     private Position rotationCenter;
@@ -12,23 +12,33 @@ public class Rectangle implements Shape {
     private int arrondi;
 
     public Rectangle() {
-
+    	super();
+    	width = 30;
+    	height = 30;
+    	pos = new Position();
+    }
+    
+    public Rectangle(double width, double height, double x, double y) {
+    	this.width = width;
+    	this.height = height;
+    	
+    	pos = new Position(x, y);
     }
 
-    public int getLength() {
-        return length;
+    public double getWidth() {
+        return width;
     }
 
-    public void setLength(int l) {
-        length = l;
+    public void setwidth(double w) {
+        width = w;
     }
 
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(int h) {
-        height = height;
+    public void setHeight(double h) {
+        height = h;
     }
 
     @Override
@@ -92,4 +102,19 @@ public class Rectangle implements Shape {
     public void setArrondi(int a) {
         arrondi = a;
     }
+
+	@Override
+	public Rectangle clone() {
+		Rectangle copy = (Rectangle)super.clone();
+		copy.setArrondi(arrondi);
+		copy.setHeight(height);
+		copy.setwidth(width);
+		copy.setRGB(rgb);
+		copy.setPosition(pos);
+		copy.setRotationCenter(rotationCenter);
+		copy.setRotation(rotation);
+		copy.setTranslationCenter(translationCenter);
+		
+		return copy;
+	}
 }
