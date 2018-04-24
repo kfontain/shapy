@@ -1,6 +1,8 @@
 package model;
 
-public class Polygone extends Shape {
+import java.util.List;
+
+public class PolygoneReg extends Shape {
 
     private Position pos;
     private int nbEdges;
@@ -9,9 +11,14 @@ public class Polygone extends Shape {
     private Position rotationCenter;
     private Position translationCenter;
     private RGB rgb;
+    private getPointsAlgo algo;
 
-    public Polygone() {
+    public PolygoneReg() {
     	super();
+    }
+
+    public List<Position> getPoints() {
+        return algo.getPoints(this.nbEdges, this.length);
     }
 
     @Override
@@ -77,8 +84,8 @@ public class Polygone extends Shape {
     }
 
 	@Override
-	public Polygone clone() {
-		return (Polygone)super.clone();
+	public PolygoneReg clone() {
+		return (PolygoneReg)super.clone();
 	}
 
 }
