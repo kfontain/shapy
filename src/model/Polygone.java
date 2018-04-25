@@ -1,6 +1,6 @@
 package model;
 
-public class Polygone extends Shape {
+public abstract class Polygone extends Shape {
 
     private Position pos;
     private int nbEdges;
@@ -80,5 +80,5 @@ public class Polygone extends Shape {
 	public Polygone clone() {
 		return (Polygone)super.clone();
 	}
-
+	
 }
