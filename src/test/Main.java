@@ -56,7 +56,7 @@ public class Main extends Application {
 
         /* Création d'un polygone en précisant nombre de côtés et longueur */
         Polygon p = new Polygon();
-        p.getPoints().addAll(toDouble(5, 200));
+        p.getPoints().addAll(toDouble(7, 100));
 
         p.relocate(400, 300);
         pane.getChildren().add(p);
