@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javafx.event.EventHandler;
@@ -16,12 +17,17 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 
-public class JavaFXView implements View {
+public class JavaFXView implements View, Serializable {
 	private Pane canvas;
 	private ToolBar menuBar;
 	private ToolBar toolBar;
 	private Scene scene;
 	private BorderPane root;
+
+	private Button save_as;
+	private Button load;
+	private Button undo;
+	private Button redo;
 
 	/* Shape attribute in ToolBar (JavaFX Shapes) */
 	private ArrayList<Shape> shapesInToolBar;
@@ -35,6 +41,11 @@ public class JavaFXView implements View {
 		shapesInToolBar = new ArrayList<Shape>();
 		shapesInCanvas = new ArrayList<Shape>();
 		scene = new Scene(root, 500, 500);
+
+        save_as = new Button("Save as");
+        load = new Button("Load");
+        undo = new Button("Undo");
+        redo = new Button("redo");
 	}
 
 	public Pane getCanvas() {
@@ -66,13 +77,8 @@ public class JavaFXView implements View {
 	}
 
 	public void addMenuBar() {
-		Button save_as = new Button("Save as");
-		Button load_as = new Button("Load");
-		Button undo = new Button("Undo");
-		Button redo = new Button("redo");
-
-		menuBar.getItems().add(save_as);
-		menuBar.getItems().add(load_as);
+	    menuBar.getItems().add(save_as);
+		menuBar.getItems().add(load);
 		menuBar.getItems().add(undo);
 		menuBar.getItems().add(redo);
 
@@ -130,6 +136,10 @@ public class JavaFXView implements View {
 			item.setOnMousePressed(event);
 		}
 	}
+
+	public void registerButtonOnMousePressed(EventHandler<MouseEvent> event) {
+
+    }
 
 	/***********************************************************************************/
 									/* Testing */
