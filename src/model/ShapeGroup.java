@@ -8,27 +8,27 @@ import view.ShapeDrawer;
 
 public class ShapeGroup implements Entity {
 
-    private ArrayList<Shape> children;
+    private ArrayList<Entity> children;
     private ArrayList<Controller> observators;
 
     public ShapeGroup() {
-    	children = new ArrayList<Shape>();
+    	children = new ArrayList<Entity>();
     	observators = new ArrayList<Controller>();
     }
 
     @Override
     public void addEntity(Entity e) {
-
+    	children.add(e);
     }
 
     @Override
     public void removeEntity(Entity e) {
-
+    	children.remove(e);
     }
 
     @Override
     public Iterator<Entity> getChildren() {
-        // return children;
+        //TODO
         return null;
     }
     
@@ -44,19 +44,16 @@ public class ShapeGroup implements Entity {
     
 	@Override
 	public void addObserver(Controller observer) {
-		// TODO Auto-generated method stub
 		observators.add(observer);
 	}
 
 	@Override
 	public void removeObserver(Controller observer) {
-		// TODO Auto-generated method stub
 		observators.remove(observer);
 	}
 
 	@Override
 	public void notifyObservers() {
-		// TODO Auto-generated method stub
 		for (Controller each : observators){
 			each.updateView();
 		}

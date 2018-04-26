@@ -1,8 +1,6 @@
 package view;
 
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
@@ -22,6 +20,12 @@ public class JavaFXView implements View {
 	private ToolBar toolBar;
 	private Scene scene;
 	private BorderPane root;
+	
+	/* Shape Menu on right click */
+	private ContextMenu shapeMenu;
+	private MenuItem group;
+	private MenuItem deGroup;
+	private MenuItem edit;
 
 	/* Shape attribute in ToolBar (JavaFX Shapes) */
 	private ArrayList<Shape> shapesInToolBar;
@@ -32,8 +36,15 @@ public class JavaFXView implements View {
 		menuBar = new ToolBar();
 		toolBar = new ToolBar();
 		root = new BorderPane();
+		
 		shapesInToolBar = new ArrayList<Shape>();
 		shapesInCanvas = new ArrayList<Shape>();
+		
+		shapeMenu = new ContextMenu();
+		group = new MenuItem("Group");
+		deGroup = new MenuItem("De-group");
+		edit = new MenuItem("Edit Color");
+		
 		scene = new Scene(root, 500, 500);
 	}
 
@@ -64,6 +75,10 @@ public class JavaFXView implements View {
 	public ArrayList<Shape> getShapesInCanvas() {
 		return shapesInCanvas;
 	}
+	
+	public ContextMenu getEditShapeMenu() {
+		return shapeMenu;
+	}
 
 	public void addMenuBar() {
 		Button save_as = new Button("Save as");
@@ -88,13 +103,17 @@ public class JavaFXView implements View {
 		root.setRight(canvas);
 		root.setBackground(Background.EMPTY);
 	}
+	
+	public void addShapeMenu() {
+		shapeMenu.getItems().addAll(group, deGroup, edit);
+	}
 
-	public double getRecgtanleXPositionInToolBar(Shape shape) {
+	public double getShapeXPositionInToolBar(Shape shape) {
 		Bounds boundsInScene = shape.localToScene(shape.getBoundsInLocal());
 		return boundsInScene.getMinX();
 	}
 
-	public double getRectangleYPositionInToolBar(Shape shape) {
+	public double getShapeYPositionInToolBar(Shape shape) {
 		Bounds boundsInScene = shape.localToScene(shape.getBoundsInLocal());
 		return boundsInScene.getMinY();
 	}
@@ -130,8 +149,4 @@ public class JavaFXView implements View {
 			item.setOnMousePressed(event);
 		}
 	}
-
-	/***********************************************************************************/
-									/* Testing */
-	/***********************************************************************************/
 }
