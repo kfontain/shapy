@@ -1,6 +1,6 @@
 package model;
 
-public class Rectangle extends Shape {
+public abstract class Rectangle extends Shape {
 
     private double width;
     private double height;
@@ -8,7 +8,6 @@ public class Rectangle extends Shape {
     private int rotation;
     private Position rotationCenter;
     private Position translationCenter;
-    private RGB rgb;
     private int arrondi;
 
     public Rectangle() {
@@ -19,10 +18,19 @@ public class Rectangle extends Shape {
     }
     
     public Rectangle(double width, double height, double x, double y) {
+    	super();
     	this.width = width;
     	this.height = height;
     	
     	pos = new Position(x, y);
+    }
+    
+    public Rectangle(double width, double height, double x, double y, RGB color) {
+    	super(color);
+    	this.width = width;
+    	this.height = height;
+    	
+    	pos = new Position(x, y);    	
     }
 
     public double getWidth() {

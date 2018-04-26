@@ -3,6 +3,7 @@ package model;
 import java.util.Iterator;
 
 import controller.Controller;
+import view.ShapeDrawer;
 
 public interface Entity extends Cloneable {
 	
@@ -18,6 +19,10 @@ public interface Entity extends Cloneable {
     public void addObserver(Controller observer);
     public void removeObserver(Controller observer);
     public void notifyObservers();
+    
+    /* MethodFactory Pattern */
+    public ShapeDrawer createShapeDrawer(Controller controller);
+    //public ShapeEditor createShapeEditor(Controller controller);
     
     /* Operations */
     public Position getPosition();

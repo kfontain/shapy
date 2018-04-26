@@ -8,8 +8,15 @@ import controller.Controller;
 
 public abstract class Shape implements Entity {
 	private ArrayList<Controller> observers;
+    protected RGB rgb;
 	
 	public Shape() {
+		observers = new ArrayList<Controller>();
+		rgb = new RGB(0, 0, 0);
+	}
+	
+	public Shape(RGB color) {
+		this.rgb = color;
 		observers = new ArrayList<Controller>();
 	}
 	

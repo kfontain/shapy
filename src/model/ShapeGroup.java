@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import controller.Controller;
+import view.ShapeDrawer;
 
 public class ShapeGroup implements Entity {
 
@@ -125,5 +126,11 @@ public class ShapeGroup implements Entity {
 	public void setRGB(RGB rgb) {
 		// TODO Auto-generated method stub
 		
-	}	
+	}
+
+	@Override
+	public ShapeDrawer createShapeDrawer(Controller controller) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
