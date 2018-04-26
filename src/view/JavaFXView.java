@@ -39,6 +39,34 @@ public class JavaFXView implements View {
 		scene = new Scene(root, 500, 500);
 	}
 	
+	public Pane getCanvas() {
+		return canvas;
+	}
+
+	public void setCanvas(Pane canvas) {
+		this.canvas = canvas;
+	}
+
+	public BorderPane getRoot() {
+		return root;
+	}
+
+	public void setRoot(BorderPane root) {
+		this.root = root;
+	}
+
+	public ToolBar getToolBar() {
+		return toolBar;
+	}
+	
+	public ArrayList<Shape> getShapesInToolBar() {
+		return shapesInToolBar;
+	}
+
+	public ArrayList<Shape> getShapesInCanvas() {
+		return shapesInCanvas;
+	}
+	
 	public void addMenuBar() {
 		Button save_as = new Button("Save as");
 		Button load_as = new Button("Load");
@@ -99,27 +127,31 @@ public class JavaFXView implements View {
 						/* Register Event Handlers on JavaFX objects */
 	/*********************************************************************************/
 		
-	public void registerCreateRectangleInToolBarOnClick(EventHandler<MouseEvent> event) {
+	public void registerCreateShapeInToolBarOnClick(EventHandler<MouseEvent> event) {
 		for(Shape item : shapesInToolBar) {
 			item.setOnMouseClicked(event);
 		}
 	}
 	
-	public void registerDragRectangleToCanvas(EventHandler<MouseEvent> event) {
+	public void registerDragShapeToCanvas(EventHandler<MouseEvent> event) {
 		for(Shape item : shapesInCanvas) {
 			item.setOnMouseDragged(event);
 		}
 	}
 	
-	public void registerMoveRectangleOnMouseEnter(EventHandler<MouseEvent> event) {
+	public void registerMoveShapeOnMouseEnter(EventHandler<MouseEvent> event) {
 		for(Shape item : shapesInCanvas) {
 			item.setOnMouseEntered(event);
 		}
 	}
 	
-	public void registerRectangleOnMousePressed(EventHandler<MouseEvent> event) {
+	public void registerShapeOnMousePressed(EventHandler<MouseEvent> event) {
 		for(Shape item : shapesInCanvas) {
 			item.setOnMousePressed(event);
 		}
 	}
+	
+	/***********************************************************************************/
+							/* Testing */
+	/***********************************************************************************/
 }
