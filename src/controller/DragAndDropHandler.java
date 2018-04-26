@@ -11,7 +11,7 @@ import model.Position;
 import view.ShapeDrawer;
 
 public class DragAndDropHandler extends JavaFXEventHandlers {
-
+	
 	public DragAndDropHandler(JavaFXController controller) {
 		super(controller);
 	}
@@ -27,17 +27,16 @@ public class DragAndDropHandler extends JavaFXEventHandlers {
 	EventHandler<MouseEvent> createShapeInToolBarOnClick = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent me) {
 			Shape shape = (Shape)me.getSource();
-			double x = controller.getView().getRecgtanleXPositionInToolBar(shape);
-			double y = controller.getView().getRectangleYPositionInToolBar(shape);
+			double x = controller.getView().getShapeXPositionInToolBar(shape);
+			double y = controller.getView().getShapeYPositionInToolBar(shape);
 			
 			/* Set the model position */
 			ArrayList<Shape> shapes = controller.getView().getShapesInToolBar();
 			if(shapes.size() == controller.getShapesInToolBar().size()) {
 				double shapeX, shapeY; 
 				for(int i = 0 ; i < shapes.size(); ++i) {
-					shapeX = controller.getView().getRecgtanleXPositionInToolBar(shapes.get(i));
-					shapeY = controller.getView().getRectangleYPositionInToolBar(shapes.get(i));
-					System.out.println("My X is : "+ x +"Shape X is :  "+ shapeX + " My Y is : "+ y + " Shape Y is :  " +shapeY);
+					shapeX = controller.getView().getShapeXPositionInToolBar(shapes.get(i));
+					shapeY = controller.getView().getShapeYPositionInToolBar(shapes.get(i));
 					if(shapeX == x && shapeY == y) {
 						controller.getShapesInToolBar().get(i).setPosition(new Position(x, y));
 					}
@@ -52,7 +51,7 @@ public class DragAndDropHandler extends JavaFXEventHandlers {
 					controller.getShapesInCanvas().add(copy);
 				}
 			}
-
+			
 			controller.getView().registerDragShapeToCanvas(dragShapeToCanvas);
 			controller.getView().registerMoveShapeOnMouseEnter(moveShapeOnMouseEnter);
 			controller.getView().registerShapeOnMousePressed(shapeOnMousePressed);
@@ -63,8 +62,8 @@ public class DragAndDropHandler extends JavaFXEventHandlers {
 	EventHandler<MouseEvent> dragShapeToCanvas = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent me) {
 			Shape shape = (Shape)me.getSource();
-			double x = controller.getView().getRecgtanleXPositionInToolBar(shape);
-			double y = controller.getView().getRectangleYPositionInToolBar(shape);
+			double x = controller.getView().getShapeXPositionInToolBar(shape);
+			double y = controller.getView().getShapeYPositionInToolBar(shape);
 
 			double dragX = me.getSceneX() - dragAnchor.getX();
 			double dragY = me.getSceneY() - dragAnchor.getY();

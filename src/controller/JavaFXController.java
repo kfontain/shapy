@@ -49,6 +49,7 @@ public class JavaFXController implements Controller {
 	public void initilizeView() {
 		view.addMenuBar();
 		view.addCanvas();
+		view.addShapeMenu();
 
 		for(Entity shape : shapesInToolBar) {
 			ShapeDrawer drawer = shape.createShapeDrawer(this);
@@ -84,8 +85,7 @@ public class JavaFXController implements Controller {
 									/* Register Event Handlers */
 	/**************************************************************************************************/
 
-	public void initDragAndDropShapeHandler() {
-		//view.registerCreateShapeInToolBarOnClick(createShapeInToolBarOnClick);
+	public void initEventHandlers() {
 		for(JavaFXEventHandlers event : eventHandlers) {
 			event.registerEventHandler();
 		}

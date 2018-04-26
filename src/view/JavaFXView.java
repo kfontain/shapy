@@ -1,8 +1,6 @@
 package view;
 
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
@@ -23,6 +21,12 @@ public class JavaFXView implements View, Serializable {
 	private ToolBar toolBar;
 	private Scene scene;
 	private BorderPane root;
+	
+	/* Shape Menu on right click */
+	private ContextMenu shapeMenu;
+	private MenuItem group;
+	private MenuItem deGroup;
+	private MenuItem edit;
 
 	private Button save_as;
 	private Button load;
@@ -38,8 +42,15 @@ public class JavaFXView implements View, Serializable {
 		menuBar = new ToolBar();
 		toolBar = new ToolBar();
 		root = new BorderPane();
+		
 		shapesInToolBar = new ArrayList<Shape>();
 		shapesInCanvas = new ArrayList<Shape>();
+		
+		shapeMenu = new ContextMenu();
+		group = new MenuItem("Group");
+		deGroup = new MenuItem("De-group");
+		edit = new MenuItem("Edit Color");
+		
 		scene = new Scene(root, 500, 500);
 
         save_as = new Button("Save as");
@@ -75,6 +86,10 @@ public class JavaFXView implements View, Serializable {
 	public ArrayList<Shape> getShapesInCanvas() {
 		return shapesInCanvas;
 	}
+	
+	public ContextMenu getEditShapeMenu() {
+		return shapeMenu;
+	}
 
 	public void addMenuBar() {
 	    menuBar.getItems().add(save_as);
@@ -94,13 +109,17 @@ public class JavaFXView implements View, Serializable {
 		root.setRight(canvas);
 		root.setBackground(Background.EMPTY);
 	}
+	
+	public void addShapeMenu() {
+		shapeMenu.getItems().addAll(group, deGroup, edit);
+	}
 
-	public double getRecgtanleXPositionInToolBar(Shape shape) {
+	public double getShapeXPositionInToolBar(Shape shape) {
 		Bounds boundsInScene = shape.localToScene(shape.getBoundsInLocal());
 		return boundsInScene.getMinX();
 	}
 
-	public double getRectangleYPositionInToolBar(Shape shape) {
+	public double getShapeYPositionInToolBar(Shape shape) {
 		Bounds boundsInScene = shape.localToScene(shape.getBoundsInLocal());
 		return boundsInScene.getMinY();
 	}
