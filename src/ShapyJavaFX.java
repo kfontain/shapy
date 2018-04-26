@@ -16,7 +16,8 @@ public class ShapyJavaFX extends Application implements Shapy {
 	public void start(Stage primaryStage) {
 		Controller controller = javafx.createController();
 		controller.initilizeView();
-		controller.registerEventHandlers();
+		//controller.registerEventHandlers();
+		controller.initDragAndDropShapeHandler();
 		
 		JavaFXController javafxController = (JavaFXController)controller;
 		primaryStage.setTitle("Shapy");
