@@ -2,6 +2,9 @@ package model;
 
 import java.util.List;
 
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+
 public abstract class PolygoneReg extends Shape {
 
     private Position pos;
@@ -11,14 +14,26 @@ public abstract class PolygoneReg extends Shape {
     private Position rotationCenter;
     private Position translationCenter;
     private RGB rgb;
-    private getPointsAlgo algo;
 
     public PolygoneReg() {
     	super();
     }
 
-    public List<Position> getPoints() {
-        return algo.getPoints(this.nbEdges, this.length);
+    public Double[] getPoints(int n, double l) {
+        Double[] tmp = new Double[n*2];
+        tmp[0] = tmp[1] = 0.0; // first point (0,0)
+
+        // angle intérieur en radian
+        double angle =  (n - 2) * 3.14 / n;
+
+        // Calcul des coordonées des points
+        for (int i = 2; i < n * 2; i+=2) {
+            double tmp_angle = angle - ((i/2 * 360/n) * 3.14 / 180);
+            tmp[i] = tmp[i - 2] + l * cos(tmp_angle);
+            tmp[i+1] = tmp[i - 1] + l * sin(tmp_angle);
+        }
+
+        return tmp;
     }
 
     @Override
