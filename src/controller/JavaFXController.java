@@ -4,6 +4,7 @@ import view.JavaFXView;
 import view.ShapeDrawer;
 
 import model.Entity;
+import model.PolygoneRegJavaFX;
 import model.RGB;
 import model.RectangleJavaFX;
 
@@ -30,8 +31,11 @@ public class JavaFXController implements Controller {
 		this.view = view;
 		shapesInToolBar = new ArrayList<Entity>();
 		shapesInCanvas = new ArrayList<Entity>();
+		
 		shapesInToolBar.add(new RectangleJavaFX(64, 32, 0, 0, new RGB(0, 191, 255)));
 		shapesInToolBar.add(new RectangleJavaFX(64, 32, 0, 0, new RGB(0, 21, 255)));
+		shapesInToolBar.add(new PolygoneRegJavaFX(5, 30, new RGB(0, 21, 255)));
+		
 		commands = new ArrayDeque<Command>();
 		eventHandlers = new ArrayList<JavaFXEventHandlers>();
 		eventHandlers.add(new DragAndDropHandler(this));

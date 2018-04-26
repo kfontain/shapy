@@ -4,7 +4,6 @@ public abstract class Rectangle extends Shape {
 
     private double width;
     private double height;
-    private Position pos;
     private int rotation;
     private Position rotationCenter;
     private Position translationCenter;
@@ -14,23 +13,18 @@ public abstract class Rectangle extends Shape {
     	super();
     	width = 30;
     	height = 30;
-    	pos = new Position();
     }
     
     public Rectangle(double width, double height, double x, double y) {
-    	super();
+    	super(x, y);
     	this.width = width;
-    	this.height = height;
-    	
-    	pos = new Position(x, y);
+    	this.height = height;    	
     }
     
     public Rectangle(double width, double height, double x, double y, RGB color) {
-    	super(color);
+    	super(x, y, color);
     	this.width = width;
-    	this.height = height;
-    	
-    	pos = new Position(x, y);    	
+    	this.height = height;    	
     }
 
     public double getWidth() {
@@ -48,15 +42,7 @@ public abstract class Rectangle extends Shape {
     public void setHeight(double h) {
         height = h;
     }
-
-    @Override
-    public Position getPosition() {
-        return pos;
-    }
-
-    @Override
-    public void setPosition(Position p) { pos = p; }
-
+    
     @Override
     public void translate(double dx, double dy) {
         pos.setX(pos.getX() + dx);
@@ -92,17 +78,7 @@ public abstract class Rectangle extends Shape {
     public void setTranslationCenter(Position p) {
         translationCenter = p;
     }
-
-    @Override
-    public RGB getRGB() {
-        return rgb;
-    }
-
-    @Override
-    public void setRGB(RGB rgb) {
-        this.rgb = rgb;
-    }
-
+    
     public int getArrondi() {
         return arrondi;
     }

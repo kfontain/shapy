@@ -9,16 +9,41 @@ import controller.Controller;
 public abstract class Shape implements Entity {
 	private ArrayList<Controller> observers;
     protected RGB rgb;
+    protected Position pos;
 	
 	public Shape() {
 		observers = new ArrayList<Controller>();
 		rgb = new RGB(0, 0, 0);
+		pos = new Position();
 	}
 	
-	public Shape(RGB color) {
+	public Shape(double x, double y) {
+		pos = new Position(x, y);
+	}
+	
+	public Shape(double x, double y, RGB color) {
 		this.rgb = color;
 		observers = new ArrayList<Controller>();
+		pos = new Position(x, y);
 	}
+	
+    @Override
+    public Position getPosition() {
+        return pos;
+    }
+
+    @Override
+    public void setPosition(Position p) { pos = p; }
+    
+    @Override
+    public RGB getRGB() {
+        return rgb;
+    }
+
+    @Override
+    public void setRGB(RGB rgb) {
+        this.rgb = rgb;
+    }
 	
 	public void addEntity(Entity e) throws UnsupportedOperationException {
 		throw new UnsupportedAddressTypeException();

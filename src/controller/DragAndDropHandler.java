@@ -29,7 +29,7 @@ public class DragAndDropHandler extends JavaFXEventHandlers {
 			Shape shape = (Shape)me.getSource();
 			double x = controller.getView().getRecgtanleXPositionInToolBar(shape);
 			double y = controller.getView().getRectangleYPositionInToolBar(shape);
-
+			
 			/* Set the model position */
 			ArrayList<Shape> shapes = controller.getView().getShapesInToolBar();
 			if(shapes.size() == controller.getShapesInToolBar().size()) {
@@ -37,6 +37,7 @@ public class DragAndDropHandler extends JavaFXEventHandlers {
 				for(int i = 0 ; i < shapes.size(); ++i) {
 					shapeX = controller.getView().getRecgtanleXPositionInToolBar(shapes.get(i));
 					shapeY = controller.getView().getRectangleYPositionInToolBar(shapes.get(i));
+					System.out.println("My X is : "+ x +"Shape X is :  "+ shapeX + " My Y is : "+ y + " Shape Y is :  " +shapeY);
 					if(shapeX == x && shapeY == y) {
 						controller.getShapesInToolBar().get(i).setPosition(new Position(x, y));
 					}
