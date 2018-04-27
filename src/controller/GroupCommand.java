@@ -1,6 +1,6 @@
 package controller;
 
-public class GroupCommand extends JavaFXCommand{
+public class GroupCommand implements Command{
 
 	@Override
 	public void execute() {

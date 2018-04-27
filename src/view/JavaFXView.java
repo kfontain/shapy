@@ -1,6 +1,7 @@
 package view;
 
 import javafx.scene.control.*;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
@@ -9,6 +10,7 @@ import javafx.scene.shape.Shape;
 
 import java.util.ArrayList;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.geometry.Orientation;
@@ -26,6 +28,7 @@ public class JavaFXView implements View {
 	private MenuItem group;
 	private MenuItem deGroup;
 	private MenuItem edit;
+	private ColorPicker colorPicker;
 
 	/* Shape attribute in ToolBar (JavaFX Shapes) */
 	private ArrayList<Shape> shapesInToolBar;
@@ -43,13 +46,18 @@ public class JavaFXView implements View {
 		shapeMenu = new ContextMenu();
 		group = new MenuItem("Group");
 		deGroup = new MenuItem("De-group");
-		edit = new MenuItem("Edit Color");
+		colorPicker = new ColorPicker();
+		edit = new MenuItem("Edit Color", colorPicker);
 		
 		scene = new Scene(root, 500, 500);
 	}
 
 	public Pane getCanvas() {
 		return canvas;
+	}
+	
+	public ColorPicker getColorPicker() {
+		return colorPicker;
 	}
 
 	public void setCanvas(Pane canvas) {
@@ -148,5 +156,19 @@ public class JavaFXView implements View {
 		for(Shape item : shapesInCanvas) {
 			item.setOnMousePressed(event);
 		}
+	}
+	
+	public void registerShapeMenuEditorHandler(EventHandler<ContextMenuEvent> event) {
+		for(Shape item : shapesInCanvas) {
+			item.setOnContextMenuRequested(event);
+		}
+	}
+	
+	public void registerShapeEditColorHandler(EventHandler<ActionEvent> event) {
+		edit.setOnAction(event);
+	}
+	
+	public void registerColorPickerHandler(EventHandler<ActionEvent> event) {
+		colorPicker.setOnAction(event);
 	}
 }

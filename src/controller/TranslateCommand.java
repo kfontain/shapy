@@ -2,7 +2,7 @@ package controller;
 
 import model.Entity;
 
-public class TranslateCommand extends JavaFXCommand{
+public class TranslateCommand implements Command{
 	private double dragX, dragY;
 	private Entity shape;
 	

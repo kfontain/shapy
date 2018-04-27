@@ -12,6 +12,8 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 
 public class JavaFXController implements Controller {
 
@@ -38,9 +40,16 @@ public class JavaFXController implements Controller {
 		
 		commands = new ArrayDeque<Command>();
 		eventHandlers = new ArrayList<JavaFXEventHandlers>();
-		eventHandlers.add(new DragAndDropHandler(this));
+		
+		/* Shape in Canvas Event Handlers must be initialized within ShapeInCanvasHandlers */
+		ArrayList<JavaFXEventHandlers> shapesInCanvasHandlers = new ArrayList<JavaFXEventHandlers>();
+		shapesInCanvasHandlers.add(new EditShapeMenuHandler(this));
+		shapesInCanvasHandlers.add(new DragAndDropHandler(this));
+		
+		/* All EventHandlers */
+		eventHandlers.add(new ShapeInCanvasHandlers(this, shapesInCanvasHandlers));
 
-		for(Entity shape : shapesInToolBar) {
+		for(Entity shape : shapesInCanvas) {
 			shape.addObserver(this);
 		}
 	}
@@ -79,6 +88,16 @@ public class JavaFXController implements Controller {
 
 	/* Model Observer */
 	public void updateView() {
+		for(Entity shapeModel : shapesInCanvas) {
+			for(Shape shapeView : view.getShapesInCanvas()) {
+				if(shapeModel.getPosition().getX() == view.getShapeXPositionInToolBar(shapeView) && shapeModel.getPosition().getY() == view.getShapeYPositionInToolBar(shapeView)) {
+					int red = shapeModel.getRGB().getR();
+					int blue = shapeModel.getRGB().getB();
+					int green = shapeModel.getRGB().getG();
+					shapeView.setFill(Color.rgb(red, green, blue));
+				}
+			}
+		}
 	}
 
 	/***************************************************************************************************/

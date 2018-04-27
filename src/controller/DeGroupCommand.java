@@ -1,6 +1,6 @@
 package controller;
 
-public class DeGroupCommand extends JavaFXCommand {
+public class DeGroupCommand implements Command {
 
 	@Override
 	public void execute() {

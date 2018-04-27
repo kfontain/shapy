@@ -1,6 +1,6 @@
 package controller;
 
-public class RotateCommand extends JavaFXCommand {
+public class RotateCommand implements Command {
 
 	@Override
 	public void execute() {
